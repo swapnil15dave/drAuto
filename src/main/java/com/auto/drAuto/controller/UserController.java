@@ -14,14 +14,14 @@ public class UserController {
 	@Autowired
 	UserDao userDao;
 	
-	@PostMapping(value="/addUser")
+	@PostMapping(value="/createUser")
 	public ResponseBean<?> addUser(UserBean userBean)
 	{		System.out.println(userBean.getUserPhone());
 			userDao.insertUser(userBean);
 			ResponseBean<UserBean> responseBean = new ResponseBean<>();
 			responseBean.setObj(userBean);
 			responseBean.setMessage("user added");
-			responseBean.setStatusCode(200);
+			responseBean.setStatusCode(201);
 			return responseBean;
 	}
 }
